@@ -5,20 +5,24 @@
 class Got < Formula
   desc "CLI tool for manipulating git branches together with Jira tickets"
   homepage ""
-  version "0.0.8"
+  version "0.0.9"
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/macanton/got/releases/download/v0.0.8/got_0.0.8_Darwin_x86_64.tar.gz"
-    sha256 "631811b7b592d68f29419e4d3f0ec645f8c358e97057657539fd96c99d3ca915"
+    url "https://github.com/macanton/got/releases/download/v0.0.9/got_0.0.9_Darwin_x86_64.tar.gz"
+    sha256 "52e98d8dfd59d3a84e427f0975a211318568221c768a54392a65c2adeb4f08ee"
+  end
+  if OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/macanton/got/releases/download/v0.0.9/got_0.0.9_Darwin_arm64.tar.gz"
+    sha256 "710e7481acb0055eecee0823a137fff53ad23fd95d2251ae1876f0a9238d4f16"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/macanton/got/releases/download/v0.0.8/got_0.0.8_Linux_x86_64.tar.gz"
-    sha256 "c6cda78f7ab42d3c639b9b56040e279822a0d13db48badfa8db281aa39f9134e"
+    url "https://github.com/macanton/got/releases/download/v0.0.9/got_0.0.9_Linux_x86_64.tar.gz"
+    sha256 "d1f6d6799b3c5cac3b6f49bee4fd5b7b479243fefbbd8f78c05ce1ae1154d4f8"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/macanton/got/releases/download/v0.0.8/got_0.0.8_Linux_arm64.tar.gz"
-    sha256 "91caa545fcaee8ae4df61dafa5abd4c4678039c0ecdbf30766fee1bcf848301c"
+    url "https://github.com/macanton/got/releases/download/v0.0.9/got_0.0.9_Linux_arm64.tar.gz"
+    sha256 "5ef8b715d3fa477a16405c08f8b69d0f15b517fdf2b8f042cdeea0357190ad77"
   end
 
   def install
