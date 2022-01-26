@@ -5,27 +5,43 @@
 class Got < Formula
   desc "CLI tool for manipulating git branches together with Jira tickets"
   homepage ""
-  version "0.0.9"
-  bottle :unneeded
+  version "0.0.10"
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/macanton/got/releases/download/v0.0.9/got_0.0.9_Darwin_x86_64.tar.gz"
-    sha256 "52e98d8dfd59d3a84e427f0975a211318568221c768a54392a65c2adeb4f08ee"
-  end
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/macanton/got/releases/download/v0.0.9/got_0.0.9_Darwin_arm64.tar.gz"
-    sha256 "710e7481acb0055eecee0823a137fff53ad23fd95d2251ae1876f0a9238d4f16"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/macanton/got/releases/download/v0.0.9/got_0.0.9_Linux_x86_64.tar.gz"
-    sha256 "d1f6d6799b3c5cac3b6f49bee4fd5b7b479243fefbbd8f78c05ce1ae1154d4f8"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/macanton/got/releases/download/v0.0.9/got_0.0.9_Linux_arm64.tar.gz"
-    sha256 "5ef8b715d3fa477a16405c08f8b69d0f15b517fdf2b8f042cdeea0357190ad77"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/macanton/got/releases/download/v0.0.10/got_0.0.10_Darwin_x86_64.tar.gz"
+      sha256 "c8d54617c6040779cfbdc511d9cd97bb11e7433906bf86f6abe9542450bcb3df"
+
+      def install
+        bin.install "got"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/macanton/got/releases/download/v0.0.10/got_0.0.10_Darwin_arm64.tar.gz"
+      sha256 "91f1823fc188b9b847d286e75923145552ef55ace60c36f22f726704f2d511f4"
+
+      def install
+        bin.install "got"
+      end
+    end
   end
 
-  def install
-    bin.install "got"
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/macanton/got/releases/download/v0.0.10/got_0.0.10_Linux_x86_64.tar.gz"
+      sha256 "0fa1e9b1c2e5a805fd065f368c5deb6fe4cbded2e52f20724d478c6709c53c51"
+
+      def install
+        bin.install "got"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/macanton/got/releases/download/v0.0.10/got_0.0.10_Linux_arm64.tar.gz"
+      sha256 "e636089995a39e0b2ba66dca73614c45418f9038ea49e7f3ac8e0c1c323b4271"
+
+      def install
+        bin.install "got"
+      end
+    end
   end
 end
